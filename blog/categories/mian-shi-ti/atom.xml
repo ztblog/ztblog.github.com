@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 面试题 | iris]]></title>
   <link href="http://ztblog.github.io/blog/categories/mian-shi-ti/atom.xml" rel="self"/>
   <link href="http://ztblog.github.io/"/>
-  <updated>2013-10-07T20:41:01+08:00</updated>
+  <updated>2013-10-07T23:18:43+08:00</updated>
   <id>http://ztblog.github.io/</id>
   <author>
     <name><![CDATA[zhangteng]]></name>
@@ -14,11 +14,91 @@
 
   
   <entry>
+    <title type="html"><![CDATA[找数字分析（出现一次的数字）]]></title>
+    <link href="http://ztblog.github.io/blog/2013/10/07/zhaoshuzi/"/>
+    <updated>2013-10-07T23:15:00+08:00</updated>
+    <id>http://ztblog.github.io/blog/2013/10/07/zhaoshuzi</id>
+    <content type="html"><![CDATA[<h3>原题</h3>
+
+<p>数组A中，除了某一个数字X之外，其他数字都出现了三次，而X出现了一次。请给出最快的方法找到X。</p>
+
+<h3>分析</h3>
+
+<p>乍一看这个题目，不少同学立马给出了答案：异或。但举个例子，就会发现，异或是行不通的，一般的方法是利用异或的的如下特性：</p>
+
+<p>A xor A = 0
+A xor 0 = A</p>
+
+<p>但是这个题目中，数字都是奇数个的，直接采用之前类似题目的异或方法，已经不合适了。<br/>
+除此之外，我们还可能想到如下的方法：</p>
+
+<p>采用hashmap，时间复杂度O(n)，空间复杂度O(n)</p>
+
+<p>对数组A进行排序，然后在遍历一次，时间复杂度O(nlogn)，空间复杂度O(1)</p>
+
+<p>是否还有一些效果更好的方法呢？这一类的题目，即使简单的异或不能解决，也可以从二进制位、位操作方面去考虑，总之这样的大方向是不会错的。</p>
+
+<p>题目中，如果数组中的元素都是三个三个出现的，那么从二进制表示的角度，每个位上的1加起来，应该可以整除3。如果有一个数x只出现一次，会是什么情况呢？</p>
+
+<p>如果某个特定位上的1加起来，可以被3整除，说明对应x的那位是0，因为如果是1，不可能被3整除<br/>
+如果某个特定位上的1加起来，不可以被3整除，说明对应x的那位是1</p>
+
+<p>根据上面的描述，我们可以开辟一个大小为32的数组，第0个元素表示，A中所有元素的二进制表示的最低位的和，依次类推。最后，再转换为十进制数即可。这里要说明的是，用一个大小为32的整数数组表示，同样空间是O(1)的。<br/>
+不过这里申请了一个数组的空间，如果这个是不被允许的呢？请大家开动脑筋，我们会在后续的文章中分享。</p>
+
+<p>代码：<br/>
+```</p>
+
+<h1>include &lt;stdio.h></h1>
+
+<h1>include &lt;string.h></h1>
+
+<h1>include <iostream></h1>
+
+<h1>include <string></h1>
+
+<h1>include <algorithm></h1>
+
+<h1>include <map></h1>
+
+<p>using namespace std;
+int a[1000];
+int main() {</p>
+
+<pre><code>int n,i,j,k,cnt,ans;
+scanf("%d", &amp;n);
+for(i = 0;i &lt; n; ++i) {
+    scanf("%d", &amp;a[i]);
+}
+long tmp = 1;
+ans = 0;
+for(i = 0;i &lt; 32; ++i) {
+    cnt = 0;
+    for(j = 0;j &lt; n; ++j) {
+        cnt += a[j] &amp; tmp;
+    }
+    if(cnt % 3 == 0) {
+        ans = ans | (0&lt;&lt;i);
+    } else {
+        ans = ans | (1&lt;&lt;i);
+    }
+    tmp = tmp &lt;&lt; 1;
+}
+printf("%d\n", ans);
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[括号匹配]]></title>
     <link href="http://ztblog.github.io/blog/2013/10/07/kuohaopipei/"/>
     <updated>2013-10-07T16:36:00+08:00</updated>
     <id>http://ztblog.github.io/blog/2013/10/07/kuohaopipei</id>
-    <content type="html"><![CDATA[<h3>原题</h3>
+    <content type="html"><![CDATA[<h2>原题</h2>
 
 <p>  给定字符串，输出括号是否匹配，例如:</p>
 
@@ -29,7 +109,7 @@
 
 <p>  要求必须用递归写，整个实现不可以出现一个循环语句.</p>
 
-<h3>分析</h3>
+<h2>分析</h2>
 
 <p>这个题目很多同学都见过了，如果没有后面的条件，会张口就说就来用栈来实现，时间复杂度O(n)，空间复杂度O(n)。这个是很好的一个解答，没有 问题的。但是我们在做面试题，准备面试的过程中，每一个题目都不应该仅仅局限于某一个方法。应该尝试更多的思路，尽管有些思路的时间、空间复杂度并不是很 好，但是可以带来变化，举一反三，这才是真正的收获。</p>
 
