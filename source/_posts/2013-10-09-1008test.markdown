@@ -1,0 +1,7 @@
+---
+layout: post
+title: "1008test"
+date: 2013-10-09 10:57
+comments: true
+categories: 
+---
