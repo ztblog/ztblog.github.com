@@ -100,133 +100,129 @@
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p>1.去发布目录下建立相应的文件夹<br/>
-2.更改发布脚本<br/>
-3.执行脚本<br/>
-4.接下来就分两种情况了<br/>
+      <p>1.去发布目录下建立相应的文件夹<br />
+2.更改发布脚本<br />
+3.执行脚本<br />
+4.接下来就分两种情况了<br />
 4.1静态网站
-修改nginx配置文件nginx.conf<br/>
-在最后加上如下代码：</p>
+修改nginx配置文件nginx.conf<br />
+在最后加上如下代码：  </p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>server {
-</span><span class='line'>        listen       192.168.1.xx:80;
-</span><span class='line'>        server_name  xxx.net;
-</span><span class='line'>        charset utf-8;
-</span><span class='line'>
-</span><span class='line'>        location / {
-</span><span class='line'>            root   /leave/xx/deploy/xx;
-</span><span class='line'>
-</span><span class='line'>            autoindex on;
-</span><span class='line'>            autoindex_exact_size off;
-</span><span class='line'>            autoindex_localtime on;
-</span><span class='line'>
-</span><span class='line'>            index  index.html;
-</span><span class='line'>        }
-</span><span class='line'>   }
-</span><span class='line'>#ps:xx根据实际情况修改</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">server <span class="o">{</span>
+</span><span class="line">        listen       192.168.1.xx:80;
+</span><span class="line">        server_name  xxx.net;
+</span><span class="line">        charset utf-8;
+</span><span class="line">
+</span><span class="line">        location / <span class="o">{</span>
+</span><span class="line">            root   /leave/xx/deploy/xx;
+</span><span class="line">
+</span><span class="line">            autoindex on;
+</span><span class="line">            autoindex_exact_size off;
+</span><span class="line">            autoindex_localtime on;
+</span><span class="line">
+</span><span class="line">            index  index.html;
+</span><span class="line">        <span class="o">}</span>
+</span><span class="line">   <span class="o">}</span>
+</span><span class="line"><span class="c">#ps:xx根据实际情况修改</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>4.2java web网站
-(1)修改nginx配置文件nginx.conf<br/>
+(1)修改nginx配置文件nginx.conf<br />
 在最后加上如下代码：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>server {
-</span><span class='line'>        listen       192.168.1.x:80;
-</span><span class='line'>        server_name  xxx.net;
-</span><span class='line'>        charset utf-8;
-</span><span class='line'>
-</span><span class='line'>        location / {
-</span><span class='line'>                proxy_set_header   Host             $host;
-</span><span class='line'>                proxy_set_header   X-Real-IP        $remote_addr;
-</span><span class='line'>                proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
-</span><span class='line'>                client_max_body_size       1024m;
-</span><span class='line'>                client_body_buffer_size    128k;
-</span><span class='line'>                client_body_temp_path      data/client_body_temp;
-</span><span class='line'>                proxy_connect_timeout      90;
-</span><span class='line'>                proxy_send_timeout         90;
-</span><span class='line'>                proxy_read_timeout         90;
-</span><span class='line'>                proxy_buffer_size          4k;
-</span><span class='line'>                proxy_buffers              4 32k;
-</span><span class='line'>                proxy_busy_buffers_size    64k;
-</span><span class='line'>                proxy_temp_file_write_size 64k;
-</span><span class='line'>                proxy_temp_path            data/proxy_temp;
-</span><span class='line'>                proxy_pass http://127.0.0.1:8080;
-</span><span class='line'>        }
-</span><span class='line'>   }
-</span><span class='line'>#ps:xx根据实际情况修改</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">server <span class="o">{</span>
+</span><span class="line">        listen       192.168.1.x:80;
+</span><span class="line">        server_name  xxx.net;
+</span><span class="line">        charset utf-8;
+</span><span class="line">
+</span><span class="line">        location / <span class="o">{</span>
+</span><span class="line">                proxy_set_header   Host             <span class="nv">$host</span>;
+</span><span class="line">                proxy_set_header   X-Real-IP        <span class="nv">$remote_addr</span>;
+</span><span class="line">                proxy_set_header  X-Forwarded-For  <span class="nv">$proxy_add_x_forwarded_for</span>;
+</span><span class="line">                client_max_body_size       1024m;
+</span><span class="line">                client_body_buffer_size    128k;
+</span><span class="line">                client_body_temp_path      data/client_body_temp;
+</span><span class="line">                proxy_connect_timeout      90;
+</span><span class="line">                proxy_send_timeout         90;
+</span><span class="line">                proxy_read_timeout         90;
+</span><span class="line">                proxy_buffer_size          4k;
+</span><span class="line">                proxy_buffers              4 32k;
+</span><span class="line">                proxy_busy_buffers_size    64k;
+</span><span class="line">                proxy_temp_file_write_size 64k;
+</span><span class="line">                proxy_temp_path            data/proxy_temp;
+</span><span class="line">                proxy_pass http://127.0.0.1:8080;
+</span><span class="line">        <span class="o">}</span>
+</span><span class="line">   <span class="o">}</span>
+</span><span class="line"><span class="c">#ps:xx根据实际情况修改</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>(2)修改tomcat配置文件server.xml
 加上如下代码：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;Host name="xxx.net"  appBase="webapps" unpackWARs="true" autoDeploy="true"&gt;
-</span><span class='line'>  &lt;Context path="" docBase="/xxx/deploy/xxx" debug="0" reloadable="true" crossContext="true" /&gt;
-</span><span class='line'>&lt;/Host&gt;
-</span><span class='line'>#ps:xx根据实际情况修改</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">&lt;Host <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;xxx.net&quot;</span>  <span class="nv">appBase</span><span class="o">=</span><span class="s2">&quot;webapps&quot;</span> <span class="nv">unpackWARs</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nv">autoDeploy</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>&gt;
+</span><span class="line">	&lt;Context <span class="nv">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="nv">docBase</span><span class="o">=</span><span class="s2">&quot;/xxx/deploy/xxx&quot;</span> <span class="nv">debug</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="nv">reloadable</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="nv">crossContext</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> /&gt;
+</span><span class="line">&lt;/Host&gt;
+</span><span class="line"><span class="c">#ps:xx根据实际情况修改</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>5.平滑重启nginx</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ps -aux | grep nginx
-</span><span class='line'>// 找到nginx master的pid
-</span><span class='line'>kill -HUP pid</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">ps -aux | grep nginx
+</span><span class="line">// 找到nginx master的pid
+</span><span class="line"><span class="nb">kill</span> -HUP pid
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>6.如果是java web，还需重启tomcat
 7.更改路由</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>system-view
-</span><span class='line'>ip host xxx.net 192.168.1.xx</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">system-view
+</span><span class="line">ip host xxx.net 192.168.1.xx
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
     </div>
   </div>
@@ -271,6 +267,8 @@
           
             <a class="basic-alignment left" href="/blog/2013/10/07/zhaoshuzi/" title="Previous Post: 找数字分析（出现一次的数字）">&laquo; 找数字分析（出现一次的数字）</a>
           
+          
+            <a class="basic-alignment right" href="/blog/2013/10/09/minglinghangmbr/" title="Next Post: 命令行修复MBR">命令行修复MBR &raquo;</a>
           
         </p>
       </div>

@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>about - iris</title>
+  <title>命令行修复MBR - iris</title>
   <meta name="author" content="zhangteng">
 
    
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ztblog.github.io/about.html">
+  <link rel="canonical" href="http://ztblog.github.io/blog/2013/10/09/minglinghangmbr">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -53,7 +53,7 @@
     
         <li ><a href="/blog/archives/index.html">Archives</a></li>
     
-        <li class="active"><a href="/about.html">About me</a></li>
+        <li ><a href="/about.html">About me</a></li>
     
 </ul>
 
@@ -76,29 +76,99 @@
     <div class="span12">
       <div class="row-fluid">
         <div id="content">
-          <article role="article">
+          <div>
+<article class="hentry" role="article">
   
+
   <header>
-    <div class="jumbotron">
-      About
+  <div class="jumbotron">
+    命令行修复MBR
+	<h5>
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-09T16:22:00+08:00" pubdate data-updated="true">Oct 9<span>th</span>, 2013</time></h5>
+  </div>
+</header>
+  <div class="row-fluid">
+    <div class="span12">
+      <p>命令行修复MBR  </p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">1、shift+F10打开命令行
+</span><span class="line">2、输入：diskpart
+</span><span class="line">3、输入：list disk 查看磁盘信息
+</span><span class="line">4、选择你要操作的磁盘：
+</span><span class="line"><span class="k">select </span>disk 0
+</span><span class="line">5、输入：clean,清除分区
+</span><span class="line">6、输入：convert mbr 转换为MBR分区
+</span><span class="line">7、退出，重新分区OK
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>注意：在做以上操作的时候先备份文件</p>
+
     </div>
-    <p class="meta">
+  </div>
 
 
 
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
 
 
-
-
-
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
   
-
-
-<time datetime="2013-10-07T16:27:00+08:00" pubdate data-updated="true">Oct 7<span>th</span>, 2013</time></p>
-  </header>
   
-  <h1 id="who-am-i">Who am I?</h1>
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
+      </div>
+      
+      
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2013/10/09/xiangmufabu/" title="Previous Post: 项目发布">&laquo; 项目发布</a>
+          
+          
+        </p>
+      </div>
+    </div>
+  </footer>
 </article>
 
   <section>
@@ -107,6 +177,7 @@
 </div>
   </section>
 
+</div>
 
 
 
@@ -131,8 +202,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ztblog.github.io/about.html';
-        var disqus_url = 'http://ztblog.github.io/about.html';
+        var disqus_identifier = 'http://ztblog.github.io/blog/2013/10/09/minglinghangmbr/';
+        var disqus_url = 'http://ztblog.github.io/blog/2013/10/09/minglinghangmbr/';
         var disqus_script = 'embed.js';
       
     (function () {
