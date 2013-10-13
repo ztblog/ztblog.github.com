@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 面试题 | iris]]></title>
   <link href="http://ztblog.github.io/blog/categories/mian-shi-ti/atom.xml" rel="self"/>
   <link href="http://ztblog.github.io/"/>
-  <updated>2013-10-12T20:52:52+08:00</updated>
+  <updated>2013-10-13T22:21:37+08:00</updated>
   <id>http://ztblog.github.io/</id>
   <author>
     <name><![CDATA[zhangteng]]></name>
@@ -18,12 +18,12 @@
     <link href="http://ztblog.github.io/blog/2013/10/07/zhaoshuzi/"/>
     <updated>2013-10-07T23:15:00+08:00</updated>
     <id>http://ztblog.github.io/blog/2013/10/07/zhaoshuzi</id>
-    <content type="html"><![CDATA[<h3 id="section">原题</h3>
+    <content type="html"><![CDATA[<h2 id="section">原题</h2>
 <p>        数组A中，除了某一个数字X之外，其他数字都出现了三次，而X出现了一次。请给出最快的方法找到X。   </p>
 
 <!-- more -->
 
-<h3 id="section-1">分析</h3>
+<h2 id="section-1">分析</h2>
 <p>        乍一看这个题目，不少同学立马给出了答案：异或。但举个例子，就会发现，异或是行不通的，一般的方法是利用异或的的如下特性：  </p>
 
 <p>        A xor A = 0<br />
