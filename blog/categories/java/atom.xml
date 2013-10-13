@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | iris]]></title>
   <link href="http://ztblog.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://ztblog.github.io/"/>
-  <updated>2013-10-13T22:21:37+08:00</updated>
+  <updated>2013-10-13T22:22:41+08:00</updated>
   <id>http://ztblog.github.io/</id>
   <author>
     <name><![CDATA[zhangteng]]></name>
@@ -35,8 +35,11 @@ public class ListTest {
     }
 
     System.out.println(numbers);
-} } ``` 这样写之后，会报错。因为list在循环中的时候是不可以删除它的元素的。 对上面的代码进行一点下改进就可以删除list中的元素了，就是在`remove`之后加个`break`就可以了。
+} } ``` &lt;!-- more --&gt;
 </code></pre>
+
+<p>这样写之后，会报错。因为list在循环中的时候是不可以删除它的元素的。
+对上面的代码进行一点下改进就可以删除list中的元素了，就是在<code>remove</code>之后加个<code>break</code>就可以了。</p>
 
 <p>``` java
 public class ListTest {
