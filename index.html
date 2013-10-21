@@ -105,6 +105,87 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-21T09:32:00+08:00" pubdate data-updated="true">Oct 21<span>st</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          <a href="http://ztblog.github.io/blog/2013/10/21/json-to-bean/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/java/"><span class="badge">java</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/21/json-to-bean/">JSON和bean互转</a></h1>
+      <p>需要用到的类：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">json</span><span class="o">.</span><span class="na">JSONObject</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>在包<code>json-lib-2.3-jdk15</code>中
+maven依赖：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line">    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">json</span><span class="o">-</span><span class="n">lib</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">json</span><span class="o">-</span><span class="n">lib</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.4</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">classifier</span><span class="o">&gt;</span><span class="n">jdk15</span><span class="o">&lt;/</span><span class="n">classifier</span><span class="o">&gt;</span>
+</span><span class="line">    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>将bean转换成JSONObject，调用<code>JSONObject.fromObject(object)</code>
+如：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">JSONObject</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">fromObject</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>将JSONObject转换成bean，调用<code>JSONObject.toBean(jsonObject, beanClass)</code>
+如：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="n">User</span><span class="o">)</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">toBean</span><span class="o">(</span><span class="n">jsonObject</span><span class="o">,</span> <span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-10-13T21:42:00+08:00" pubdate data-updated="true">Oct 13<span>th</span>, 2013</time></h5>
           <div class="row-fluid">
           
@@ -585,7 +666,7 @@
         <footer class="footer-page" role="contentinfo">
           <p>
   Copyright &copy; 2013 - zhangteng -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>
 </p>
 
 

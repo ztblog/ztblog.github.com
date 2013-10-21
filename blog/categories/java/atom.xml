@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | iris]]></title>
   <link href="http://ztblog.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://ztblog.github.io/"/>
-  <updated>2013-10-13T22:23:53+08:00</updated>
+  <updated>2013-10-21T10:51:13+08:00</updated>
   <id>http://ztblog.github.io/</id>
   <author>
     <name><![CDATA[zhangteng]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JSON和bean互转]]></title>
+    <link href="http://ztblog.github.io/blog/2013/10/21/json-to-bean/"/>
+    <updated>2013-10-21T09:32:00+08:00</updated>
+    <id>http://ztblog.github.io/blog/2013/10/21/json-to-bean</id>
+    <content type="html"><![CDATA[<p>需要用到的类：</p>
+
+<p><code>java
+net.sf.json.JSONObject  
+</code>
+在包<code>json-lib-2.3-jdk15</code>中
+maven依赖：</p>
+
+<p><code>java
+        &lt;dependency&gt;
+            &lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;
+            &lt;artifactId&gt;json-lib&lt;/artifactId&gt;
+            &lt;version&gt;2.4&lt;/version&gt;
+            &lt;classifier&gt;jdk15&lt;/classifier&gt;
+        &lt;/dependency&gt;
+</code>
+将bean转换成JSONObject，调用<code>JSONObject.fromObject(object)</code>
+如：</p>
+
+<p><code>java
+JSONObject jsonObject = JSONObject.fromObject(user);
+</code></p>
+
+<p>将JSONObject转换成bean，调用<code>JSONObject.toBean(jsonObject, beanClass)</code>
+如：</p>
+
+<p><code>java
+User user = (User) JSONObject.toBean(jsonObject, User.class);
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[删除Java集合中元素]]></title>

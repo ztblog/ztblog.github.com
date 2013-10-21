@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>第一篇博文 - iris</title>
+  <title>JSON和bean互转 - iris</title>
   <meta name="author" content="zhangteng">
 
    
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ztblog.github.io/blog/2013/10/07/first-blog">
+  <link rel="canonical" href="http://ztblog.github.io/blog/2013/10/21/json-to-bean">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -82,7 +82,7 @@
 
   <header>
   <div class="jumbotron">
-    第一篇博文
+    JSON和bean互转
 	<h5>
 
 
@@ -95,30 +95,45 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-07T16:13:00+08:00" pubdate data-updated="true">Oct 7<span>th</span>, 2013</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-21T09:32:00+08:00" pubdate data-updated="true">Oct 21<span>st</span>, 2013</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p>        这个博客的第一篇博文。  </p>
+      <p>需要用到的类：</p>
 
-<p>        以前用过wordpress，不过基本没有去维护它，上面也没有东西。这次选择了Octopress，他是基于markdown的，挂在github上，无限流量。最主要的还是喜欢它那句宣传语。</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">json</span><span class="o">.</span><span class="na">JSONObject</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>在包<code>json-lib-2.3-jdk15</code>中
+maven依赖：</p>
 
-<p>        这个博客来得不易啊，前前后后折腾了好多。主要还是太菜了，啥也不会。</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line">    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">json</span><span class="o">-</span><span class="n">lib</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">json</span><span class="o">-</span><span class="n">lib</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.4</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span><span class="line">        <span class="o">&lt;</span><span class="n">classifier</span><span class="o">&gt;</span><span class="n">jdk15</span><span class="o">&lt;/</span><span class="n">classifier</span><span class="o">&gt;</span>
+</span><span class="line">    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>将bean转换成JSONObject，调用<code>JSONObject.fromObject(object)</code>
+如：</p>
 
-<p>        搭的时候看了很多网上的教材，都大同小异，开始的时候也不是很细心，不是这出错就是那出错。</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">JSONObject</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">fromObject</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>        最后还是看了官网教程，上面说的肯定是对的，虽然是英文，还是能看懂的。</p>
+<p>将JSONObject转换成bean，调用<code>JSONObject.toBean(jsonObject, beanClass)</code>
+如：</p>
 
-<p>        以后要学生么东西，最好还是看看官方说明吧，虽说网上好多都和官方说的差不多，但有时候还是会有一些差异的。</p>
-
-<p>        这个博客来的不易，也希望自己以后能多写点东西，多做点记录。也是对所学东西的总结。</p>
-
-<p>        最后，贴上octopress的官网：<a href="http://octopress.org/">http://octopress.org/</a></p>
-
-<blockquote>
-  <p>像黑客一样写博客。</p>
-</blockquote>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="n">User</span><span class="o">)</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">toBean</span><span class="o">(</span><span class="n">jsonObject</span><span class="o">,</span> <span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
     </div>
   </div>
@@ -134,6 +149,12 @@
         <p class="meta">
         
         
+
+
+
+  <a href="/blog/categories/java/"><span class="badge">java</span></a>
+
+
 
 
         </p>
@@ -161,8 +182,8 @@
       <div class="span12">
         <p class="meta">
           
+            <a class="basic-alignment left" href="/blog/2013/10/13/remove-elemetns/" title="Previous Post: 删除Java集合中元素">&laquo; 删除Java集合中元素</a>
           
-            <a class="basic-alignment right" href="/blog/2013/10/07/kuohaopipei/" title="Next Post: 括号匹配">括号匹配 &raquo;</a>
           
         </p>
       </div>
@@ -201,8 +222,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ztblog.github.io/blog/2013/10/07/first-blog/';
-        var disqus_url = 'http://ztblog.github.io/blog/2013/10/07/first-blog/';
+        var disqus_identifier = 'http://ztblog.github.io/blog/2013/10/21/json-to-bean/';
+        var disqus_url = 'http://ztblog.github.io/blog/2013/10/21/json-to-bean/';
         var disqus_script = 'embed.js';
       
     (function () {
