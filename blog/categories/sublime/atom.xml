@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sublime | iris]]></title>
+  <link href="http://ztblog.github.io/blog/categories/sublime/atom.xml" rel="self"/>
+  <link href="http://ztblog.github.io/"/>
+  <updated>2013-10-23T14:24:29+08:00</updated>
+  <id>http://ztblog.github.io/</id>
+  <author>
+    <name><![CDATA[zhangteng]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[sublime利用snippet生成代码模版]]></title>
+    <link href="http://ztblog.github.io/blog/2013/10/23/sublime-snippet/"/>
+    <updated>2013-10-23T14:20:00+08:00</updated>
+    <id>http://ztblog.github.io/blog/2013/10/23/sublime-snippet</id>
+    <content type="html"><![CDATA[<p><code>tools-&gt;New Snippet</code>新建一个snippet，保存为**.sublime-snippet。<br />
+内容如下：<br />
+<!-- more -->
+```</p>
+<snippet>
+    <content>
+    &lt;![CDATA[
+&lt;!DOCTYPE HTML&gt; 
+<html> 
+<head> 
+    <meta charset="utf-8" /> 
+    <title>${1}</title> 
+</head>
+<body>
+    ${1}
+</body>
+</html>
+    ]]&gt;
+	</content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabtrigger>myhtml</tabtrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
+<p>sublime-snippet
+```
+重启sublime，新建文件输入myhtml，然后按<code>tab</code>。</p>
+]]></content>
+  </entry>
+  
+</feed>
