@@ -105,6 +105,66 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-10-30T09:54:00+08:00" pubdate data-updated="true">Oct 30<span>th</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          <a href="http://ztblog.github.io/blog/2013/10/30/testtt/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/10/30/testtt/">testtt</a></h1>
+      <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">public</span> <span class="n">String</span> <span class="nf">execute</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span><span class="line">    <span class="k">if</span><span class="o">(</span><span class="n">getSum</span><span class="o">()</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">        <span class="k">return</span> <span class="s">&quot;positive&quot;</span><span class="o">;</span>
+</span><span class="line">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class="line">        <span class="k">return</span> <span class="s">&quot;negative&quot;</span><span class="o">;</span>
+</span><span class="line">    <span class="o">}</span>
+</span><span class="line"><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-10-30T09:28:00+08:00" pubdate data-updated="true">Oct 30<span>th</span>, 2013</time></h5>
           <div class="row-fluid">
           
@@ -119,9 +179,9 @@
     </div>
     <div class="span10">
       <h1 class="link"><a href="/blog/2013/10/30/struts2-json/">structs2返回json</a></h1>
-      <p>structs2返回本身支持返回json，只需要配置即可，我们也可以自己把json串写入servlet输出流中。<br />
-1.structs2本身对json的支持<br />
-在action中对需要返回的值进行设置，实体、java自带类型都可以。<br />
+      <p>structs2返回本身支持返回json，只需要配置即可，我们也可以自己把json串写入servlet输出流中。
+1.structs2本身对json的支持
+在action中对需要返回的值进行设置，实体、java自带类型都可以。
 如：</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
@@ -138,31 +198,30 @@
 </span><span class="line">
 </span><span class="line"><span class="cm">/*   setter and getter   */</span>
 </span><span class="line"><span class="kd">public</span> <span class="n">String</span> <span class="nf">json</span><span class="o">()</span> <span class="o">{</span>
-</span><span class="line">	<span class="n">user</span><span class="o">.</span><span class="na">setUserName</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
-</span><span class="line">	<span class="n">result</span> <span class="o">=</span> <span class="s">&quot;success&quot;</span><span class="o">;</span>
-</span><span class="line">	<span class="k">return</span> <span class="n">SUCCESS</span><span class="o">;</span>
+</span><span class="line">    <span class="n">user</span><span class="o">.</span><span class="na">setUserName</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
+</span><span class="line">    <span class="n">result</span> <span class="o">=</span> <span class="s">&quot;success&quot;</span><span class="o">;</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">SUCCESS</span><span class="o">;</span>
 </span><span class="line"><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>在配置文件中配置result的type为json  </p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<p>在配置文件中配置result的type为json
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
 <span class="line-number">5</span>
 <span class="line-number">6</span>
 <span class="line-number">7</span>
-</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
-</span><span class="line">	<span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;json&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;org.apache.struts2.json.JSONResult&quot;</span><span class="o">/&gt;</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="java"><span class="line"><span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
+</span><span class="line">    <span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;json&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;org.apache.struts2.json.JSONResult&quot;</span><span class="o">/&gt;</span>
 </span><span class="line"><span class="o">&lt;/</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
 </span><span class="line">
 </span><span class="line"><span class="o">&lt;</span><span class="n">action</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;hello_*&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;action.FirstAction&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;{1}&quot;</span><span class="o">&gt;</span>
-</span><span class="line">	<span class="o">&lt;</span><span class="n">result</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;success&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;json&quot;</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
+</span><span class="line">    <span class="o">&lt;</span><span class="n">result</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;success&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;json&quot;</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
 </span><span class="line"><span class="o">&lt;/</span><span class="n">action</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>注意result-types那段一定要加上，不加那个的就必须让action所在的package继承<code>json-default</code><br />
-2.把json数据写入servlet输出流中<br />
-在action中讲json数据直接写入servlet输出流中，action中的方法返回void<br />
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
+注意result-types那段一定要加上，不加那个的就必须让action所在的package继承<code>json-default</code>
+2.把json数据写入servlet输出流中
+在action中讲json数据直接写入servlet输出流中，action中的方法返回void
 如：</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
@@ -189,27 +248,27 @@
 <span class="line-number">22</span>
 <span class="line-number">23</span>
 </pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">newjsontest</span><span class="o">()</span> <span class="o">{</span>
-</span><span class="line">	<span class="n">HttpServletResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">();</span>
-</span><span class="line">	<span class="n">PrintWriter</span> <span class="n">out</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class="line">	<span class="k">try</span> <span class="o">{</span>
-</span><span class="line">		<span class="n">out</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
-</span><span class="line">		<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
-</span><span class="line">		<span class="n">user</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
-</span><span class="line">		<span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
-</span><span class="line">		<span class="n">JSONObject</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">fromObject</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
-</span><span class="line">		<span class="n">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">jsonObject</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-</span><span class="line">		<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-</span><span class="line">	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class="line">		<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span><span class="line">	<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-</span><span class="line">		<span class="k">if</span><span class="o">(</span><span class="n">out</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span><span class="line">			<span class="k">try</span> <span class="o">{</span>
-</span><span class="line">				<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span><span class="line">			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class="line">				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span><span class="line">			<span class="o">}</span>
-</span><span class="line">		<span class="o">}</span>
-</span><span class="line">	<span class="o">}</span>
+</span><span class="line">    <span class="n">HttpServletResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">();</span>
+</span><span class="line">    <span class="n">PrintWriter</span> <span class="n">out</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class="line">    <span class="k">try</span> <span class="o">{</span>
+</span><span class="line">        <span class="n">out</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+</span><span class="line">	<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+</span><span class="line">	<span class="n">user</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
+</span><span class="line">	<span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
+</span><span class="line">	<span class="n">JSONObject</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">fromObject</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span><span class="line">	<span class="n">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">jsonObject</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span><span class="line">	<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+</span><span class="line">    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">	<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class="line">    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class="line">	<span class="k">if</span><span class="o">(</span><span class="n">out</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">	    <span class="k">try</span> <span class="o">{</span>
+</span><span class="line">    	        <span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span><span class="line">    	    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">	        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class="line">	    <span class="o">}</span>
+</span><span class="line">        <span class="o">}</span>
+</span><span class="line">    <span class="o">}</span>
 </span><span class="line"><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>这里用到了<code>net.sf.json.JSONObject</code>这个包，将实体直接转换成json，也可以不用这个包，直接手动拼json串，然后<code>out.write(jsonStr)</code>。</p>
@@ -904,72 +963,10 @@ maven依赖：</p>
 
     </article>
     
-    <hr>
-    
-  
-  
-    <article>
-      
-
-  <div class="row-fluid">
-    <div class="span2">
-		<h1 class="date-time">
-
-
-
-
-
-
-
-
-  
-
-
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-07T16:13:00+08:00" pubdate data-updated="true">Oct 7<span>th</span>, 2013</time></h5>
-          <div class="row-fluid">
-          
-          <a href="http://ztblog.github.io/blog/2013/10/07/first-blog/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
-          
-          </div>
-          
-          <div class="row-fluid">
-          
-          </div>
-          
-    </div>
-    <div class="span10">
-      <h1 class="link"><a href="/blog/2013/10/07/first-blog/">第一篇博文</a></h1>
-      <p>        这个博客的第一篇博文。  </p>
-
-<p>        以前用过wordpress，不过基本没有去维护它，上面也没有东西。这次选择了Octopress，他是基于markdown的，挂在github上，无限流量。最主要的还是喜欢它那句宣传语。</p>
-
-<p>        这个博客来得不易啊，前前后后折腾了好多。主要还是太菜了，啥也不会。</p>
-
-<p>        搭的时候看了很多网上的教材，都大同小异，开始的时候也不是很细心，不是这出错就是那出错。</p>
-
-<p>        最后还是看了官网教程，上面说的肯定是对的，虽然是英文，还是能看懂的。</p>
-
-<p>        以后要学生么东西，最好还是看看官方说明吧，虽说网上好多都和官方说的差不多，但有时候还是会有一些差异的。</p>
-
-<p>        这个博客来的不易，也希望自己以后能多写点东西，多做点记录。也是对所学东西的总结。</p>
-
-<p>        最后，贴上octopress的官网：<a href="http://octopress.org/">http://octopress.org/</a></p>
-
-<blockquote>
-  <p>像黑客一样写博客。</p>
-</blockquote>
-
-      
-      
-    </div>
-  </div>
-
-
-
-    </article>
-    
   
   <div class="pagination">
+    
+    <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
 
     
