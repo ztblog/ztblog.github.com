@@ -4,7 +4,7 @@
   <title><![CDATA[iris]]></title>
   <link href="http://ztblog.github.io/atom.xml" rel="self"/>
   <link href="http://ztblog.github.io/"/>
-  <updated>2013-10-23T14:24:29+08:00</updated>
+  <updated>2013-10-30T09:33:07+08:00</updated>
   <id>http://ztblog.github.io/</id>
   <author>
     <name><![CDATA[zhangteng]]></name>
@@ -12,6 +12,108 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[structs2返回json]]></title>
+    <link href="http://ztblog.github.io/blog/2013/10/30/struts2-json/"/>
+    <updated>2013-10-30T09:28:00+08:00</updated>
+    <id>http://ztblog.github.io/blog/2013/10/30/struts2-json</id>
+    <content type="html"><![CDATA[<p>structs2返回本身支持返回json，只需要配置即可，我们也可以自己把json串写入servlet输出流中。<br />
+1.structs2本身对json的支持<br />
+在action中对需要返回的值进行设置，实体、java自带类型都可以。<br />
+如：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">private</span> <span class="n">User</span> <span class="n">user</span><span class="o">;</span>
+</span><span class="line"><span class="kd">private</span> <span class="n">result</span> <span class="n">result</span><span class="o">;</span>
+</span><span class="line">
+</span><span class="line"><span class="cm">/*   setter and getter   */</span>
+</span><span class="line"><span class="kd">public</span> <span class="n">String</span> <span class="nf">json</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="line">	<span class="n">user</span><span class="o">.</span><span class="na">setUserName</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
+</span><span class="line">	<span class="n">result</span> <span class="o">=</span> <span class="s">&quot;success&quot;</span><span class="o">;</span>
+</span><span class="line">	<span class="k">return</span> <span class="n">SUCCESS</span><span class="o">;</span>
+</span><span class="line"><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>在配置文件中配置result的type为json  </p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
+</span><span class="line">	<span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;json&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;org.apache.struts2.json.JSONResult&quot;</span><span class="o">/&gt;</span>
+</span><span class="line"><span class="o">&lt;/</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
+</span><span class="line">
+</span><span class="line"><span class="o">&lt;</span><span class="n">action</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;hello_*&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;action.FirstAction&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;{1}&quot;</span><span class="o">&gt;</span>
+</span><span class="line">	<span class="o">&lt;</span><span class="n">result</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;success&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;json&quot;</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
+</span><span class="line"><span class="o">&lt;/</span><span class="n">action</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>注意result-types那段一定要加上，不加那个的就必须让action所在的package继承<code>json-default</code><br />
+2.把json数据写入servlet输出流中<br />
+在action中讲json数据直接写入servlet输出流中，action中的方法返回void<br />
+如：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">newjsontest</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="line">	<span class="n">HttpServletResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">();</span>
+</span><span class="line">	<span class="n">PrintWriter</span> <span class="n">out</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class="line">	<span class="k">try</span> <span class="o">{</span>
+</span><span class="line">		<span class="n">out</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+</span><span class="line">		<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+</span><span class="line">		<span class="n">user</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
+</span><span class="line">		<span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;iris&quot;</span><span class="o">);</span>
+</span><span class="line">		<span class="n">JSONObject</span> <span class="n">jsonObject</span> <span class="o">=</span> <span class="n">JSONObject</span><span class="o">.</span><span class="na">fromObject</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</span><span class="line">		<span class="n">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">jsonObject</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span><span class="line">		<span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+</span><span class="line">	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">		<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class="line">	<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class="line">		<span class="k">if</span><span class="o">(</span><span class="n">out</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">			<span class="k">try</span> <span class="o">{</span>
+</span><span class="line">				<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span><span class="line">			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class="line">			<span class="o">}</span>
+</span><span class="line">		<span class="o">}</span>
+</span><span class="line">	<span class="o">}</span>
+</span><span class="line"><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>这里用到了<code>net.sf.json.JSONObject</code>这个包，将实体直接转换成json，也可以不用这个包，直接手动拼json串，然后<code>out.write(jsonStr)</code>。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[sublime利用snippet生成代码模版]]></title>
