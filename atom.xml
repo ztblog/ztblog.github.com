@@ -4,7 +4,7 @@
   <title><![CDATA[iris]]></title>
   <link href="http://ztblog.github.io/atom.xml" rel="self"/>
   <link href="http://ztblog.github.io/"/>
-  <updated>2013-10-30T10:01:22+08:00</updated>
+  <updated>2013-10-31T17:31:20+08:00</updated>
   <id>http://ztblog.github.io/</id>
   <author>
     <name><![CDATA[zhangteng]]></name>
@@ -12,29 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[testtt]]></title>
-    <link href="http://ztblog.github.io/blog/2013/10/30/testtt/"/>
-    <updated>2013-10-30T09:54:00+08:00</updated>
-    <id>http://ztblog.github.io/blog/2013/10/30/testtt</id>
-    <content type="html"><![CDATA[<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">public</span> <span class="n">String</span> <span class="nf">execute</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-</span><span class="line">    <span class="k">if</span><span class="o">(</span><span class="n">getSum</span><span class="o">()</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span><span class="line">        <span class="k">return</span> <span class="s">&quot;positive&quot;</span><span class="o">;</span>
-</span><span class="line">    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span><span class="line">        <span class="k">return</span> <span class="s">&quot;negative&quot;</span><span class="o">;</span>
-</span><span class="line">    <span class="o">}</span>
-</span><span class="line"><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[structs2返回json]]></title>
@@ -65,25 +42,26 @@
 </span><span class="line">    <span class="k">return</span> <span class="n">SUCCESS</span><span class="o">;</span>
 </span><span class="line"><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>在配置文件中配置result的type为json
-&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;figcaption&gt;<span></span>&lt;/figcaption&gt;&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<p>在配置文件中配置result的type为json</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
 <span class="line-number">5</span>
 <span class="line-number">6</span>
 <span class="line-number">7</span>
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class="java"><span class="line"><span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
 </span><span class="line">    <span class="o">&lt;</span><span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;json&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;org.apache.struts2.json.JSONResult&quot;</span><span class="o">/&gt;</span>
 </span><span class="line"><span class="o">&lt;/</span><span class="n">result</span><span class="o">-</span><span class="n">types</span><span class="o">&gt;</span>
 </span><span class="line">
 </span><span class="line"><span class="o">&lt;</span><span class="n">action</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;hello_*&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;action.FirstAction&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;{1}&quot;</span><span class="o">&gt;</span>
 </span><span class="line">    <span class="o">&lt;</span><span class="n">result</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;success&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;json&quot;</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
 </span><span class="line"><span class="o">&lt;/</span><span class="n">action</span><span class="o">&gt;</span>
-</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;
-注意result-types那段一定要加上，不加那个的就必须让action所在的package继承<code>json-default</code>
-2.把json数据写入servlet输出流中
-在action中讲json数据直接写入servlet输出流中，action中的方法返回void
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>注意result-types那段一定要加上，不加那个的就必须让action所在的package继承<code>json-default</code><br />
+2.把json数据写入servlet输出流中<br />
+在action中讲json数据直接写入servlet输出流中，action中的方法返回void<br />
 如：</p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
