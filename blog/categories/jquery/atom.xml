@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jquery | iris]]></title>
+  <link href="http://ztblog.github.io/blog/categories/jquery/atom.xml" rel="self"/>
+  <link href="http://ztblog.github.io/"/>
+  <updated>2013-11-01T10:52:44+08:00</updated>
+  <id>http://ztblog.github.io/</id>
+  <author>
+    <name><![CDATA[zhangteng]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[jquery使用笔记]]></title>
+    <link href="http://ztblog.github.io/blog/2013/11/01/jquery-study/"/>
+    <updated>2013-11-01T10:43:00+08:00</updated>
+    <id>http://ztblog.github.io/blog/2013/11/01/jquery-study</id>
+    <content type="html"><![CDATA[<p>1.ajax请求，注意最后一个值的地方没有逗号</p>
+
+<p><code>js
+$.ajax({
+    type: "POST",
+    url: "mystructs/hello_jsonTest.action",
+    data: {
+        number: $("#number").val(),
+        userId: $('#userId').val()
+    },
+    dataType: "text",  //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+    success: function(json) {
+        var res = $.parseJSON(json);
+        alert(res.result);
+    },
+    error: function(json) {
+        alert(json);
+    }
+});
+</code>
+<!-- more --></p>
+
+<p>2.jquery改变值</p>
+
+<p><code>js
+$('#id').val('value');
+$('#id').html('value');
+</code></p>
+
+<p>3.jquery获取radio中被选中的那个元素</p>
+
+<p><code>js
+var val = $('input:radio[name="ra"]:checked').val();
+if(val != null) {
+    alert(val);
+} else {        
+}
+</code>
+判读radio是否被选中</p>
+
+<p><code>js
+$('input:radio[name="ra"]').each(function() {
+    //alert($(this).val());
+    if($(this).attr("checked") == "checked") {
+        alert($(this).val());
+    }
+});
+</code></p>
+
+<p>4.获取选中的checkbox</p>
+
+<p><code>js
+$('input[name="chk"]:checked').each(function(){
+    alert($(this).val());
+});
+</code>
+判读checkbox是否被选中</p>
+
+<p><code>js
+$('input:checkbox[name="chk"]').each(function() {
+    if($(this).attr("checked") == "checked") {
+        alert($(this).val());
+    }
+});
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -105,6 +105,88 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2013-11-01T10:43:00+08:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time></h5>
+          <div class="row-fluid">
+          
+          <a href="http://ztblog.github.io/blog/2013/11/01/jquery-study/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/jquery/"><span class="badge">jquery</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10">
+      <h1 class="link"><a href="/blog/2013/11/01/jquery-study/">jquery使用笔记</a></h1>
+      <p>1.ajax请求，注意最后一个值的地方没有逗号</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td><td class="code"><pre><code class="js"><span class="line"><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class="line">    <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;mystructs/hello_jsonTest.action&quot;</span><span class="p">,</span>
+</span><span class="line">    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">number</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#number&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+</span><span class="line">        <span class="nx">userId</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#userId&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+</span><span class="line">    <span class="p">},</span>
+</span><span class="line">    <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>  <span class="c1">//ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）</span>
+</span><span class="line">    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">parseJSON</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</span><span class="line">        <span class="nx">alert</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+</span><span class="line">    <span class="p">},</span>
+</span><span class="line">    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">        <span class="nx">alert</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+      
+       <a href="/blog/2013/11/01/jquery-study/">Read on &rarr;</a> 
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2">
+		<h1 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2013-10-30T09:28:00+08:00" pubdate data-updated="true">Oct 30<span>th</span>, 2013</time></h5>
           <div class="row-fluid">
           
@@ -904,72 +986,10 @@ maven依赖：</p>
 
     </article>
     
-    <hr>
-    
-  
-  
-    <article>
-      
-
-  <div class="row-fluid">
-    <div class="span2">
-		<h1 class="date-time">
-
-
-
-
-
-
-
-
-  
-
-
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-07T16:13:00+08:00" pubdate data-updated="true">Oct 7<span>th</span>, 2013</time></h5>
-          <div class="row-fluid">
-          
-          <a href="http://ztblog.github.io/blog/2013/10/07/first-blog/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
-          
-          </div>
-          
-          <div class="row-fluid">
-          
-          </div>
-          
-    </div>
-    <div class="span10">
-      <h1 class="link"><a href="/blog/2013/10/07/first-blog/">第一篇博文</a></h1>
-      <p>        这个博客的第一篇博文。  </p>
-
-<p>        以前用过wordpress，不过基本没有去维护它，上面也没有东西。这次选择了Octopress，他是基于markdown的，挂在github上，无限流量。最主要的还是喜欢它那句宣传语。</p>
-
-<p>        这个博客来得不易啊，前前后后折腾了好多。主要还是太菜了，啥也不会。</p>
-
-<p>        搭的时候看了很多网上的教材，都大同小异，开始的时候也不是很细心，不是这出错就是那出错。</p>
-
-<p>        最后还是看了官网教程，上面说的肯定是对的，虽然是英文，还是能看懂的。</p>
-
-<p>        以后要学生么东西，最好还是看看官方说明吧，虽说网上好多都和官方说的差不多，但有时候还是会有一些差异的。</p>
-
-<p>        这个博客来的不易，也希望自己以后能多写点东西，多做点记录。也是对所学东西的总结。</p>
-
-<p>        最后，贴上octopress的官网：<a href="http://octopress.org/">http://octopress.org/</a></p>
-
-<blockquote>
-  <p>像黑客一样写博客。</p>
-</blockquote>
-
-      
-      
-    </div>
-  </div>
-
-
-
-    </article>
-    
   
   <div class="pagination">
+    
+    <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
 
     
